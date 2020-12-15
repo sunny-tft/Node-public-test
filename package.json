@@ -1,31 +1,32 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "",
+  "description": "basic test configuration for Nodejs restApi",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production index.js",
-    "dev": "NODE_ENV=dev nodemon index.js",
+    "start": "NODE_ENV=production node server.js --silent",
+    "dev": "NODE_ENV=dev nodemon server.js --silent",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "NODE_ENV=qa jest --config --detectOpenHandles"
+    "test": "NODE_ENV=test jest --config ./jest.config.js --detectOpenHandles"
   },
-  "author": "",
+  "author": "sunny",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
+    "convict": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.11.8"
   },
   "husky": {
     "hook": {
-      "pre-commit":"lint-staged",
+      "pre-commit": "lint-staged",
       "pre-push": "npm run test"
     }
   },
-  "lint-staged":{
-    "*.(js,jsx)":[
+  "lint-staged": {
+    "*.(js,jsx)": [
       "npm run lint"
     ]
   },

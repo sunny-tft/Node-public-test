@@ -4,7 +4,6 @@ require('colors');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-
 app.use(cors());
 app.use(express.json());
 mongoose.set('useNewUrlParser', true);
