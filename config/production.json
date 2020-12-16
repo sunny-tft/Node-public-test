@@ -1,6 +1,4 @@
 { "db": {
-    "url": "",
-    "password": "",
-    "username": ""
+    "url": "mongodb://localhost:27017/MyBooks"
   }
 }

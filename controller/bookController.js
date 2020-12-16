@@ -70,6 +70,7 @@ const deleteBookById = async (req, res) => {
     });
   } catch (error) {}
 };
+
 const createBook = async (req, res) => {
   const { bookName } = req.body;
   const book = new Book({
