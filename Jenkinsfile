@@ -19,7 +19,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'deploy in /var/www'
+       dir('/home/tft/Desktop/nodejs-test-framwork-setup'){
+            sh "pwd"
+      }
       //   sh 'cd Desktop'
       //   sh 'pwd'
       //   sh 'cd ~/home/tft/Desktop/nodejs-test-framwork-setup'
