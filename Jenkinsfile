@@ -18,18 +18,24 @@ pipeline {
       }
     }
     stage('Deploy') {
-      steps {
-        sh 'cd Desktop'
-        sh 'pwd'
-        sh 'cd ~/home/tft/Desktop/nodejs-test-framwork-setup'
-        // sh 'git pull'
-        // sh 'echo "pulled latest"'
-        // sh 'npm install'
-        // sh 'npm "restarting server"'
-        sh 'ls -a'
-        sh 'pwd'
-        // sh 'npm start'
-      }
+      // steps {
+      //   sh 'cd Desktop'
+      //   sh 'pwd'
+      //   sh 'cd ~/home/tft/Desktop/nodejs-test-framwork-setup'
+      //   // sh 'git pull'
+      //   // sh 'echo "pulled latest"'
+      //   // sh 'npm install'
+      //   // sh 'npm "restarting server"'
+      //   sh 'ls -a'
+      //   sh 'pwd'
+      //   // sh 'npm start'
+      // }
+       sh script:'''
+          #!/bin/bash
+          echo "This is start $(pwd)"
+          cd ~/home/tft/Desktop/nodejs-test-framwork-setup
+          npm start
+        '''
     }
   }
 }
