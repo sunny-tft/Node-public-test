@@ -4,7 +4,7 @@
   "description": "basic test configuration for Nodejs restApi",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production && pm2 restart server.js --silent",
+    "start": "NODE_ENV=production && pm2 start server.js",
     "dev": "NODE_ENV=dev nodemon server.js --silent",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
