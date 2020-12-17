@@ -19,6 +19,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
+        sh '/home/tft/Desktop/nodejs-test-framwork-setup'
+        sh 'git pull'
+        sh 'npm install'
         sh 'npm start'
       }
     }
