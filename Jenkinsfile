@@ -24,8 +24,9 @@ pipeline {
         // sh 'echo "pulled latest"'
         // sh 'npm install'
         // sh 'npm "restarting server"'
-        // sh 'ls -a'
-        sh 'npm start'
+        sh 'ls -a'
+        sh 'pwd'
+        // sh 'npm start'
       }
     }
   }
