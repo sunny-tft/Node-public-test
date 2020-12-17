@@ -3,21 +3,15 @@
 const request = require('supertest');
 const app = require('../../../index');
 
-const connectDB = require('../../../config/db');
+const dbHandler = require('../../config/db');
 describe('book routes', () => {
   let endPoint;
-  let conn;
   beforeAll((done) => {
-    connectDB().then((res) => {
-      conn = res;
-      done();
-    });
+    dbHandler.connect().then(done);
   });
-  afterAll((done) => {
-    conn.connection.db.dropDatabase().then(() => {
-      conn.connection.close().then(done);
-    });
-  });
+  afterEach(async () => await dbHandler.clearDatabase());
+
+  afterAll(async () => await dbHandler.closeDatabase());
   it('GET: /api/v1/book (get all books) ', (done) => {
     endPoint = '/api/v1/book';
     request(app)
@@ -75,5 +69,55 @@ describe('book routes', () => {
         done();
       })
       .catch((err) => done(err));
+  });
+  it('DELETE: /api/v1/book/:id', (done) => {
+    endPoint = '/api/v1/book/5fd85c78465b8824040e362a';
+    request(app)
+      .delete(endPoint)
+      .set('Accept', 'application/json')
+      .then((res) => {
+        const body = res.body;
+        expect(body.success).toBe(false);
+        expect(body.code).toBe(400);
+        expect(body.message).toBe('book not found with this id');
+        done();
+      })
+      .catch((err) => done(err));
+  });
+  describe('PUT', () => {
+    it('PUT: /api/v1/book/:id', async (done) => {
+      endPoint = '/api/v1/book/5fd85c78465b8824040e361a';
+      const { body } = await request(app)
+        .put(endPoint)
+        .set('Accept', 'application/json')
+        .set('Accept', 'application/json')
+        .send({ bookName: 'day and night updated' });
+      expect(body.success).toBe(false);
+      expect(body.code).toBe(400);
+      expect(body.message).toBe('book not found with this id');
+
+      done();
+    });
+    it('PUT: /api/v1/book/:id', async (done) => {
+      endPoint = '/api/v1/book';
+      let { body } = await request(app)
+        .post(endPoint)
+        .set('Accept', 'application/json')
+        .set('Accept', 'application/json')
+        .send({ bookName: 'day and night' });
+      expect(body.success).toBe(true);
+      expect(body.code).toBe(201);
+      let { book } = body;
+      let res = await request(app)
+        .put(endPoint + `/${book._id}`)
+        .set('Accept', 'application/json')
+        .set('Accept', 'application/json')
+        .send({ bookName: 'day and night updated' });
+      expect(res.body.success).toBe(true);
+      expect(res.body.code).toBe(200);
+      expect(res.body.message).toBe('book updated successfully');
+
+      done();
+    });
   });
 });
