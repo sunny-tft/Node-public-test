@@ -19,12 +19,12 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        // sh 'cd /home/tft/Desktop/nodejs-test-framwork-setup'
+        sh 'cd /home/tft/Desktop/nodejs-test-framwork-setup'
         // sh 'git pull'
         // sh 'echo "pulled latest"'
         // sh 'npm install'
         // sh 'npm "restarting server"'
-        sh 'ls -a'
+        // sh 'ls -a'
         sh 'npm start'
       }
     }
