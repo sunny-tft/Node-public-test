@@ -5,12 +5,12 @@ pipeline {
     
   stages {
      
-    stage('Build') {
-      steps {
-        sh 'npm install'
-        sh 'npm install pm2@latest -g'
-      }
-    }  
+    // stage('Build') {
+    //   steps {
+    //     sh 'npm install'
+    //     sh 'npm install pm2@latest -g'
+    //   }
+    // }  
     
     stage('Test') {
       steps {
