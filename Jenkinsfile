@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-      sh  'node server.js'
+      sh  'npm start'
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
       //  dir('/home/tft/Desktop/nodejs-test-framwork-setup'){
       //       sh "pwd"
