@@ -19,7 +19,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'cd /home/tft/Desktop/nodejs-test-framwork-setup'
+        sh 'cd Desktop'
+        sh 'pwd'
+        sh 'cd ~/home/tft/Desktop/nodejs-test-framwork-setup'
         // sh 'git pull'
         // sh 'echo "pulled latest"'
         // sh 'npm install'
