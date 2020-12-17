@@ -7,7 +7,7 @@ pipeline {
         
     stage('Git') {
       steps {
-        git 'http://gitlab.tftus.com/nodejs-test-framwork-setup/nodejs-test-framwork-setup'
+        git clone 'http://gitlab.tftus.com/nodejs-test-framwork-setup/nodejs-test-framwork-setup'
       }
     }
      
