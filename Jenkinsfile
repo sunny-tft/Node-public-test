@@ -8,13 +8,14 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm install'
+        sh 'npm install pm2@latest -g'
       }
     }  
     
             
     stage('Test') {
       steps {
-        sh 'node run test'
+        sh 'npm run test'
       }
     }
   }
