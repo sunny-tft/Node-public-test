@@ -5,12 +5,12 @@ pipeline {
     
   stages {
      
-    // stage('Build') {
-    //   steps {
-    //     sh 'npm install'
-    //     sh 'npm install pm2@latest -g'
-    //   }
-    // }  
+    stage('Build') {
+      steps {
+        sh 'npm install'
+        sh 'npm install pm2@latest -g'
+      }
+    }  
     
     stage('Test') {
       steps {
@@ -19,11 +19,11 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'cd /home/tft/Desktop/nodejs-test-framwork-setup'
-        sh 'git pull'
-        sh 'echo "pulled latest"'
-        sh 'npm install'
-        sh 'npm "restarting server"'
+        // sh 'cd /home/tft/Desktop/nodejs-test-framwork-setup'
+        // sh 'git pull'
+        // sh 'echo "pulled latest"'
+        // sh 'npm install'
+        // sh 'npm "restarting server"'
         sh 'npm start'
       }
     }
