@@ -25,11 +25,12 @@ pipeline {
       sh 'pwd'
       sh 'cd /var/www'
       sh 'pwd'
-      sh 'npm start'
+     
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
-      //  dir('/home/tft/Desktop/nodejs-test-framwork-setup'){
-      //       sh "pwd"
-      // }
+       dir('/home/tft/Desktop/nodejs-test-framwork-setup'){
+            sh "pwd"
+            sh 'npm start'
+      }
       //   sh 'cd Desktop'
       //   sh 'pwd'
       //   sh 'cd ~/home/tft/Desktop/nodejs-test-framwork-setup'
