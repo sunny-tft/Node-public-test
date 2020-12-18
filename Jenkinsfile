@@ -21,7 +21,7 @@ pipeline {
       steps {
       
       sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
-      sh 'var/www/a.sh'
+      sh '/var/www/a.sh'
       sh 'pwd'
      
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
