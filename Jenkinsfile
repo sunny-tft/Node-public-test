@@ -21,7 +21,7 @@ pipeline {
       steps {
       
       sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
-      sh 'pm2 restart all'
+      sh 'pm2 restart all --update-env'
       sh 'pwd'
      
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
