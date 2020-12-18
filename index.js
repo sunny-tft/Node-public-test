@@ -14,7 +14,7 @@ mongoose.set('useUnifiedTopology', true);
 const bookRoute = require('./routes/bookRoute');
 
 app.use('/check', (req, res) => {
-  res.send('server up');
+  res.send('server up changed');
 });
 app.use('/api/v1/book', bookRoute);
 module.exports = app;
