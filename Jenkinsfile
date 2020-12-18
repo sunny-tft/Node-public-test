@@ -20,7 +20,7 @@ pipeline {
     stage('Deploy') {
       steps {
       
-      sh 'cp -r /var/lib/jenkins/workspace/Test-FreeStyle/* /var/www'
+      sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
       sh 'npm install'
       sh 'pwd'
       sh 'npm start'
