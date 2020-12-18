@@ -27,7 +27,7 @@ pipeline {
       sh 'pwd'
      
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
-       dir('/var/www'){
+       dir('/var/www/'){
             sh "pwd"
             sh 'npm start'
       }
