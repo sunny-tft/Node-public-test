@@ -19,7 +19,11 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-      sh  'npm start'
+      
+      sh 'cp -r /var/lib/jenkins/workspace/Test-FreeStyle/* /var/www'
+      sh 'npm install'
+      sh 'pwd'
+      sh 'npm start'
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
       //  dir('/home/tft/Desktop/nodejs-test-framwork-setup'){
       //       sh "pwd"
