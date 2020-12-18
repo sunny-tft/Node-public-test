@@ -23,6 +23,8 @@ pipeline {
       sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
       sh 'npm install'
       sh 'pwd'
+      sh 'cd /var/www'
+      sh 'pwd'
       sh 'npm start'
       //  sh 'chmod -R 777 /home/tft/Desktop/nodejs-test-framwork-setup'
       //  dir('/home/tft/Desktop/nodejs-test-framwork-setup'){
