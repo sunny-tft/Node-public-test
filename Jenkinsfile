@@ -18,6 +18,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
+        dir ('/home/tft/Desktop/nodejs-test-framwork-setup') { 
+        sh('npm start')
+      }
       // sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
       // sh 'chmod +x /var/www/run.sh'
       // sh '/var/www/run.sh'
@@ -34,14 +37,14 @@ pipeline {
       //   sh 'ls -a'
       //   sh 'pwd'
       //   // sh 'npm start'
-       sh script:'''
-          #!/bin/bash
-          echo "This is start $(pwd)"
-          cd /home/sunny/Desktop/nodejs-test-framwork-setup
-          echo "This is start $(pwd)"
-          npm start
-        '''
-      }
+      //  sh script:'''
+      //     #!/bin/bash
+      //     echo "This is start $(pwd)"
+      //     cd /home/sunny/Desktop/nodejs-test-framwork-setup
+      //     echo "This is start $(pwd)"
+      //     npm start
+      //   '''
+      // }
     }
   }
 }
