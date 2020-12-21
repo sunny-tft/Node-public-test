@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-      sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
+      // sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
       // sh 'chmod +x /var/www/run.sh'
       // sh '/var/www/run.sh'
       // sh 'cd /var/www'
@@ -37,7 +37,7 @@ pipeline {
        sh script:'''
           #!/bin/bash
           echo "This is start $(pwd)"
-          cd ~/home/tft/Desktop/nodejs-test-framwork-setup
+          cd /home/sunny/Desktop/nodejs-test-framwork-setup
           echo "This is start $(pwd)"
           npm start
         '''
