@@ -18,8 +18,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        dir ('/home/tft/Desktop/nodejs-test-framwork-setup') { 
-        sh('npm start')
+        // dir ('/home/tft/Desktop/nodejs-test-framwork-setup') { 
+        // sh('npm start')
+        sh "echo hello world"
       }
       // sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
       // sh 'chmod +x /var/www/run.sh'
