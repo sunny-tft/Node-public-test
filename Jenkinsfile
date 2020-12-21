@@ -8,7 +8,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm install'
-        // sh 'npm install pm2@latest -g'
       }
     }  
     
@@ -19,9 +18,8 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-      
+      sh 'rm -rf /var/www'
       sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
-      // sh 'pm2 restart all --update-env'
       sh 'chmod +x /var/www/run.sh'
       sh '/var/www/run.sh'
      
