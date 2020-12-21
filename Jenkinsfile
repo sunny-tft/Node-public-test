@@ -18,7 +18,6 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-      sh 'rm -rf /var/www'
       sh 'cp -r /var/lib/jenkins/workspace/Node-pipeline/* /var/www'
       sh 'chmod +x /var/www/run.sh'
       sh '/var/www/run.sh'
